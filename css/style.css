@@ -1,0 +1,1230 @@
+/* Reset and Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: 'Inter', sans-serif;
+  height: 100%;
+  background-color: #f4f4f7;
+  color: #333;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* Header - Transparent, fixed navbar */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 0;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header .logo img {
+  width: 40px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  float: right;
+}
+
+nav ul li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+nav ul li a:hover {
+  color: #6366f1;
+}
+
+header button {
+  padding: 10px 18px;
+  border: 1px solid #6366f1;
+  background-color: transparent;
+  color: #6366f1;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+header button:hover {
+  background-color: #6366f1;
+  color: white;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background: url('https://source.unsplash.com/1600x900/?technology') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding-top: 100px;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-top: 15px;
+  font-weight: 400;
+}
+
+.hero button {
+  margin-top: 25px;
+  padding: 12px 30px;
+  font-size: 1.2rem;
+  background-color: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hero button:hover {
+  background-color: #4f46e5;
+}
+
+/* Explore Section */
+.explore {
+  padding: 80px 0;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.explore h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  width: 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 20px;
+  text-align: left;
+}
+
+.card-content h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #6366f1;
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+footer .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 20px;
+}
+
+footer .social-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+footer .social-links a:hover {
+  color: #6366f1;
+}
+
+/* Mobile-Friendly Adjustments */
+@media (max-width: 768px) {
+  .cards {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .hero h1 {
+      font-size: 2.5rem;
+  }
+
+  .hero p {
+      font-size: 1.1rem;
+  }
+
+  header .logo img {
+      width: 35px;
+  }
+}
+/* Additional Styles for Engineering Page */
+
+/* Hero Section for Engineering */
+.engineering-hero {
+  background: url('https://source.unsplash.com/1600x900/?engineering,technology') no-repeat center center/cover;
+  color: white;
+  padding: 120px 0;
+  text-align: center;
+}
+
+.engineering-hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+.engineering-hero p {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-top: 15px;
+}
+
+.publications {
+  padding: 80px 0;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.publications h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.publications-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.publication {
+  background-color: #fff;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.publication h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #6366f1;
+  margin-bottom: 10px;
+}
+
+.publication p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.publication .dropdown-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #6366f1;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.publication .dropdown-btn:hover {
+  background-color: #4f46e5;
+}
+
+.publication .dropdown-content {
+  cursor: pointer;
+  display:none;
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #333;
+  text-align: left;
+}
+
+label {
+  cursor: pointer;
+  background: #3498db;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+/* .publication .dropdown-btn:active + .dropdown-content {
+  display:block;
+} */
+input[type="checkbox"]:checked + label + .dropdown-content {
+  display: block;
+}
+
+.research-programs {
+  padding: 80px 0;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.research-groups {
+  padding: 80px 0;
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+.research-groups h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.research-programs h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.research-program {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.research-program h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #6366f1;
+}
+
+.research-program p {
+  font-size: 1rem;
+  color: #555;
+  margin-top: 10px;
+}
+
+.research-program .external-link {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #6366f1;
+  text-decoration: none;
+  margin-top: 20px;
+}
+
+.research-program .external-link:hover {
+  text-decoration: underline;
+}
+/* Additional Styles for Writing Page */
+
+/* Hero Section for Writing */
+.writing-hero {
+  background: url('https://source.unsplash.com/1600x900/?writing,literature') no-repeat center center/cover;
+  color: white;
+  padding: 120px 0;
+  text-align: center;
+}
+
+.writing-hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+.writing-hero p {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-top: 15px;
+}
+
+.writings {
+  padding: 80px 0;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.writings h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.writings-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.writing {
+  background-color: #fff;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.writing h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #6366f1;
+  margin-bottom: 10px;
+}
+
+.writing p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.writing .dropdown-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #6366f1;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.writing .dropdown-btn:hover {
+  background-color: #4f46e5;
+}
+
+.writing .dropdown-content {
+  display: none;
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #333;
+  text-align: left;
+}
+
+.writing .dropdown-btn:active + .dropdown-content {
+  display: block;
+}
+/* Additional Styles for Paintings Page */
+
+/* Hero Section for Painting */
+.painting-hero {
+  background: url('https://source.unsplash.com/1600x900/?art,paintings') no-repeat center center/cover;
+  color: white;
+  padding: 120px 0;
+  text-align: center;
+}
+
+.painting-hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+.painting-hero p {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-top: 15px;
+}
+
+.paintings-gallery {
+  padding: 80px 0;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.paintings-gallery h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.sketches-gallery {
+  padding: 80px 0;
+  background-color: #f9fafb;
+  text-align: center;
+}
+
+.sketches-gallery h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.paintings-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.painting:hover{
+  background-color: #6567ed1e;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.painting {
+  background-color: #fff;
+  padding: 20px;
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.painting img {
+  width: 100%;
+  border-radius: 8px;
+  height: auto;
+}
+
+
+.painting-description {
+  margin-top: 15px;
+}
+
+.painting h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #6366f1;
+  margin-bottom: 10px;
+}
+
+.painting p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.painting .dropdown-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #6366f1;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.painting .dropdown-btn:hover {
+  background-color: #4f46e5;
+}
+
+.painting .dropdown-content {
+  display: none;
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #333;
+  text-align: left;
+}
+
+.painting .dropdown-btn:active + .dropdown-content {
+  display: block;
+}
+/* Global Styles */
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Header */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+}
+
+header nav ul li {
+  margin-left: 20px;
+}
+
+header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Hero Section */
+.hero {
+  background-color: #1c1c1c;
+  color: #fff;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.hero-content h1 span {
+  color: #f1c40f;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+.hero-content .btn {
+  background-color: #f1c40f;
+  padding: 15px 30px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #333;
+  border-radius: 5px;
+  margin-top: 30px;
+}
+
+.hero-content .btn:hover {
+  background-color: #f39c12;
+}
+
+/* Areas of Expertise Section */
+.areas-of-expertise {
+  background-color: #fff;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.areas-of-expertise h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.expertise-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.expertise-card {
+  background-color: #f9f9f9;
+  width: 250px;
+  padding: 30px;
+  margin: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.expertise-card img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+}
+
+.expertise-card h3 {
+  font-size: 1.6rem;
+  margin: 10px 0;
+  color: #333;
+}
+
+.expertise-card p {
+  font-size: 1rem;
+  color: #777;
+}
+
+.expertise-card:hover {
+  background-color: #f1c40f;
+}
+
+.expertise-card:hover h3, .expertise-card:hover p {
+  color: #fff;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+footer .social-links {
+  margin-top: 10px;
+}
+
+footer .social-links a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+footer .social-links a:hover {
+  color: #f1c40f;
+}
+
+/* Hero Section Enhancements */
+.engineering-hero {
+  background-color: #1a1a1a; /* fallback dark bg */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.engineering-hero::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background-image: url('../assets/your-background.jpg'); /* optional background image */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.08;
+  z-index: 0;
+  animation: zoomIn 10s ease-in-out infinite alternate;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideUp 1.2s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeIn 1.2s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  font-weight: 400;
+  opacity: 0;
+  animation: fadeIn 1.2s ease-out forwards;
+  animation-delay: 0.8s;
+}
+
+/* Keyframes */
+@keyframes fadeSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+/* Global and Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body, html {
+  font-family: 'Inter', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* Header */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header nav ul {
+  list-style: none;
+  display: flex;
+}
+header nav ul li {
+  margin-left: 20px;
+}
+header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+header nav ul li a:hover {
+  color: #f1c40f;
+}
+header button {
+  background-color: transparent;
+  border: 2px solid #f1c40f;
+  color: #f1c40f;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background 0.3s ease;
+}
+header button:hover {
+  background-color: #f1c40f;
+  color: #333;
+}
+
+/* Hero Section */
+.hero {
+  background-color: #1c1c1c;
+  color: #fff;
+  padding: 80px 0;
+  text-align: center;
+}
+.hero-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.hero-content h1 {
+  font-size: 3rem;
+  margin: 0;
+  font-weight: 600;
+}
+.hero-content h1 span {
+  color: #f1c40f;
+}
+.hero-content p {
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+.hero-content .btn {
+  background-color: #f1c40f;
+  padding: 15px 30px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #333;
+  border-radius: 5px;
+  margin-top: 30px;
+  display: inline-block;
+}
+.hero-content .btn:hover {
+  background-color: #f39c12;
+}
+
+/* Areas of Expertise Section */
+.areas-of-expertise {
+  background-color: #fff;
+  padding: 60px 0;
+  text-align: center;
+}
+.areas-of-expertise h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+.expertise-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.expertise-card {
+  background-color: #f9f9f9;
+  width: 280px;
+  padding: 30px;
+  margin: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  cursor: pointer; /* So it looks clickable */
+}
+.expertise-card img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+}
+.expertise-card h3 {
+  font-size: 1.6rem;
+  margin: 10px 0;
+  color: #333;
+}
+.expertise-card p {
+  font-size: 1rem;
+  color: #777;
+}
+.expertise-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Preview Panel (hidden by default) */
+.preview-panel {
+  display: none;
+  margin-top: 20px;
+  background: #fff;
+  border-radius: 6px;
+  padding: 15px;
+  text-align: left;
+  color: #333;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+/* Simple fadeIn keyframe */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+footer .social-links {
+  margin-top: 10px;
+}
+footer .social-links a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: 600;
+}
+footer .social-links a:hover {
+  color: #f1c40f;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .expertise-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+}
+
+.expertise-card {
+  background-color: #f9f9f9;
+  width: 280px;
+  padding: 30px;
+  margin: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+/* The normal hover effect (card lifts up, changes color) */
+.expertise-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background-color: #f1c40f;
+}
+
+/* If the card is active (preview is open), override the hover */
+.expertise-card.active:hover {
+  transform: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9; /* Keep the original background */
+}
+
+/* Also ensure text color remains readable when active */
+.expertise-card.active h3,
+.expertise-card.active p,
+.expertise-card.active a {
+  color: #333 !important;
+}
+
+/* The preview panel is still hidden by default */
+.preview-panel {
+  display: none;
+  margin-top: 20px;
+  background: #fff;
+  border-radius: 6px;
+  padding: 15px;
+  text-align: left;
+  color: #333;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* Keyframe from before */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Commission Form Section */
+.commission-form-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  /* Use a cool background image or gradient for effect */
+  background: url('assets/images/commission-bg.jpg') no-repeat center center/cover;
+}
+
+.commission-form-content {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  gap: 40px;
+}
+
+/* Left Column: Commission Details */
+.commission-details {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 2s ease-in-out;
+}
+
+.commission-details h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.commission-details p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Right Column: Commission Form */
+.form-container {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.85); /* semi-transparent white */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.form-container h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Input Styles & Label Customization */
+.form-container label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  color: #333; /* Changed from ugly blue to a neutral dark tone */
+  font-weight: 600;
+}
+
+.form-container input,
+.form-container select,
+.form-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.form-container button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #6366f1;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.form-container button:hover {
+  background-color: #4f46e5;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Fade in Animation for Commission Details */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(2);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .commission-form-section,
+  .commission-form-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .commission-details,
+  .form-container {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+.transparent-label {
+  background-color: transparent;
+}
+.dropdown-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #6366f1;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.dropdown-btn:hover {
+  background-color: #4f46e5;
+}
+.centered-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px; /* Adjust width as needed */
+  padding: 15px 30px; /* Adjust padding for size */
+  background-color: #f1bb63; /* Button color */
+  color: white;
+  font-size: 1.2rem; /* Larger text */
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin: 20px auto; /* Centers the button horizontally */
+  display: block; /* Ensures the button is block-level for centering */
+}
+
+.centered-submit-btn:hover {
+  background-color: #e54646; /* Darker shade on hover */
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
