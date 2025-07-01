@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PPA-Create</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="index.html"><img src="assets/logo.png" alt="PPA Logo"></a>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="engineering.html">Engineering/Research</a></li>
+          <li><a href="writing.html">Writing/Philosophy</a></li>
+          <li><a href="painting.html">Paintings</a></li>
+        </ul>
+      </nav>
+      <button id="language-toggle" onclick="toggleLanguage()">EN / RO</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Hello, I'm <span>Paul-Andrei</span></h1>
+      <p>Welcome to my full portfolio. Explore my work in Engineering, Writing, and Painting.</p>
+      <a href="#areas" class="btn">Learn More</a>
+    </div>
+  </section>
+
+  <!-- Areas of Expertise Section -->
+  <section id="areas" class="areas-of-expertise">
+    <h2>My Areas of Expertise</h2>
+    <div class="expertise-cards">
+      <!-- Engineering Card -->
+      <div class="expertise-card">
+        <img src="assets/engineering-icon.png" alt="Engineering" class="expertise-image">
+        <h3>Engineering & Research</h3>
+        <p>Explore my engineering projects, research papers, and contributions to the field.</p>
+        <!-- Hidden preview panel -->
+        <div class="preview-panel">
+          <p>
+            <strong>Engineering Preview:</strong> 
+            Dive into my advanced control systems, AI-driven research, and published papers on insulin-glucose control and anesthesia optimization.
+            <br>
+            <a href="engineering.html">Go to Engineering & Research</a>
+          </p>
+        </div>
+      </div>
+      <!-- Writing Card -->
+      <div class="expertise-card">
+        <img src="assets/writing-icon.png" alt="Writing" class="expertise-image">
+        <h3>Writing</h3>
+        <p>Discover my essays, poetry, and published articles on various topics.</p>
+        <!-- Hidden preview panel -->
+        <div class="preview-panel">
+          <p>
+            <strong>Writing Preview:</strong>
+            Sneak a peek into my essays on technology’s impact, personal philosophy, and creative poetry collections.
+            <br>
+            <a href="writing.html">Go to Writing & Philosophy</a>
+          </p>
+        </div>
+      </div>
+      <!-- Painting Card -->
+      <div class="expertise-card">
+        <img src="assets/painting-icon.png" alt="Painting" class="expertise-image">
+        <h3>Painting</h3>
+        <p>Browse through my collection of artworks and paintings, including my personal creations.</p>
+        <!-- Hidden preview panel -->
+        <div class="preview-panel">
+          <p>
+            <strong>Painting Preview:</strong>
+            View my vibrant, emotion-capturing paintings, ranging from abstract expressionism to surreal landscapes.
+            <br>
+            <a href="painting.html">Go to Paintings</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 PPA-Create. All rights reserved.</p>
+      <div class="social-links">
+        <a href="mailto:contactppacreate@gmail.com">Email me</a>
+        <a href="https://linkedin.com/in/yourname">LinkedIn</a>
+        <a href="https://github.com/yourname">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Inline JavaScript for toggling preview panels and active state -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const expertiseCards = document.querySelectorAll(".expertise-card");
+      expertiseCards.forEach(card => {
+        card.addEventListener("click", function(e) {
+          // Toggle active class to disable hover effects when preview is open
+          this.classList.toggle("active");
+          // Toggle the preview panel
+          const previewPanel = this.querySelector(".preview-panel");
+          if(previewPanel.style.display === "block") {
+            previewPanel.style.display = "none";
+          } else {
+            previewPanel.style.display = "block";
+          }
+        });
+      });
+
+      // Optional: Toggle Language for elements with data-lang
+      window.toggleLanguage = function() {
+        document.querySelectorAll('[data-lang]').forEach(el => {
+          el.style.display = (el.style.display === 'none' || el.style.display === '') ? '' : 'none';
+        });
+      };
+    });
+  </script>
+</body>
+</html>

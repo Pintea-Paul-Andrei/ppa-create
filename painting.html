@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paintings | Paul-Andrei Pintea</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Commission Form Styles */
+        .commission-section {
+            padding: 60px 0;
+            background-color: #f9fafb;
+            position: relative;
+            overflow: hidden;
+        }
+    
+        .commission-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 60px;
+            position: relative;
+        }
+    
+        .commission-info {
+            flex: 1;
+            min-width: 300px;
+            background-color: #696969;
+            color: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            position: relative;
+            overflow: hidden;
+        }
+    
+        .commission-form {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            position: relative;
+            overflow: hidden;
+        }
+    
+        /* Abstract shapes for commission info section */
+        .commission-info::before,
+        .commission-info::after {
+            content: "";
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            opacity: 0;
+            animation: float 6s infinite;
+        }
+    
+        .commission-info::before {
+            width: 60px;
+            height: 60px;
+            top: 5%;
+            left: 15%;
+            animation-delay: 0.5s;
+        }
+    
+        .commission-info::after {
+            width: 80px;
+            height: 80px;
+            bottom: 10%;
+            right: 20%;
+            animation-delay: 1s;
+        }
+    
+        /* More abstract shapes for the form section */
+        .commission-form::before,
+        .commission-form::after {
+            content: "";
+            position: absolute;
+            background-color: rgba(107, 70, 193, 0.1);
+            border-radius: 50%;
+            opacity: 0;
+            animation: float 7s infinite;
+        }
+    
+        .commission-form::before {
+            width: 70px;
+            height: 70px;
+            top: 15%;
+            left: 10%;
+            animation-delay: 0.8s;
+        }
+    
+        .commission-form::after {
+            width: 90px;
+            height: 90px;
+            bottom: 25%;
+            right: 5%;
+            animation-delay: 1.2s;
+        }
+    
+        /* Keyframes for floating animation */
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0);
+                opacity: 0.3;
+            }
+            25% {
+                transform: translate(15px, -15px);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translate(0, -25px);
+                opacity: 0.7;
+            }
+            75% {
+                transform: translate(-15px, -15px);
+                opacity: 0.5;
+            }
+        }
+    
+        .commission-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    
+        .commission-info h2,
+        .commission-form h2 {
+            margin-bottom: 30px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            font-size: 28px;
+            letter-spacing: 1.2px;
+        }
+    
+        .commission-info p {
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            color: #eee;
+            font-family: 'Inter', sans-serif;
+        }
+    
+        .form-group {
+            margin-bottom: 25px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+    
+        .form-visible .form-group {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    
+        .form-group:nth-child(1) {
+            transition-delay: 0.3s;
+        }
+    
+        .form-group:nth-child(2) {
+            transition-delay: 0.5s;
+        }
+    
+        .form-group:nth-child(3) {
+            transition-delay: 0.45s;
+        }
+    
+        .form-group:nth-child(4) {
+            transition-delay: 0.6s;
+        }
+    
+        .form-group:nth-child(5) {
+            transition-delay: 0.7s;
+        }
+    
+        .form-group:nth-child(6) {
+            transition-delay: 0.8s;
+        }
+    
+        .form-group:nth-child(7) {
+            transition-delay: 1.0s;
+        }
+    
+        .form-group:nth-child(8) {
+            transition-delay: 1.0s;
+        }
+    
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #555;
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+        }
+    
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 20px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 17px;
+            color: #1a202c;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+    
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #805ad5;
+            box-shadow: 0 0 0 3px rgba(128, 90, 213, 0.2);
+        }
+    
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #a0aec0;
+            font-style: italic;
+        }
+    
+        .select-wrapper {
+            position: relative;
+        }
+    
+        .select-wrapper::after {
+            content: "";
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23805ad5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-size: contain;
+            pointer-events: none;
+        }
+    
+        .form-group select {
+            appearance: none;
+            padding-right: 45px;
+            cursor: pointer;
+        }
+    
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+    
+        .form-group button {
+            display: block;
+            width: 100%;
+            padding: 16px 20px;
+            background-color: #6366f1;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    
+        .form-group button:hover {
+            background-color: #4f46e5;
+        }
+    
+        .form-group button:active {
+            transform: scale(0.98);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+    
+        .form-group button::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 7px;
+            height: 7px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 100%;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            transition: transform 0.6s, opacity 0.6s;
+        }
+    
+        .form-group button.active::after {
+            transform: translate(-50%, -50%) scale(120);
+            opacity: 0.9;
+        }
+    
+        #formMessage {
+            text-align: center;
+            padding: 20px;
+            background-color: #f0fdf4;
+            color: #15803d;
+            border-radius: 8px;
+            margin-top: 30px;
+            display: none;
+            border: 1px solid #16a34a;
+        }
+    
+        #formMessage.visible {
+            display: block;
+            animation: fadeIn 1s ease-in-out;
+        }
+    
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    
+        /* New styles for improved commission process steps */
+        .commission-steps {
+            list-style: none;
+            padding: 0;
+            margin-top: 30px;
+            margin-bottom: 0;
+            counter-reset: step; /* Initialize the counter */
+        }
+    
+        .commission-steps li {
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 40px;
+            counter-increment: step; /* Increment the counter for each list item */
+        }
+    
+        .commission-steps li::before {
+            content: counter(step); /* Display the current step number */
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background-color: #805ad5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 600;
+            z-index: 1;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+    
+        .commission-steps li:hover::before {
+            background-color: #6b46c1;
+            transform: scale(1.2);
+        }
+    
+        .commission-steps li h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #eee;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+    
+        .commission-steps li p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #ddd;
+            font-family: 'Inter', sans-serif;
+        }
+    
+        .commission-steps li::after {
+            content: "";
+            position: absolute;
+            left: 15px;
+            top: 35px;
+            bottom: -10px;
+            width: 2px;
+            background-color: rgba(255, 255, 255, 0.2);
+            z-index: 0;
+        }
+    
+        .commission-steps li:last-child::after {
+            display: none;
+        }
+    
+        @media screen and (max-width: 768px) {
+            .commission-steps li {
+                padding-left: 0;
+            }
+    
+            .commission-steps li::before {
+                position: relative;
+                margin-bottom: 10px;
+            }
+    
+            .commission-steps li::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+    
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Your Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="engineering.html">Engineering/Research</a></li>
+                    <li><a href="writing.html">Writing/Philosophy </a></li>
+                    <li><a href="painting.html">Paintings</a></li>
+                </ul>
+            </nav>
+            <button id="language-toggle" onclick="toggleLanguage()">EN / RO</button>
+        </div>
+    </header>
+
+    <section class="hero painting-hero">
+        <div class="hero-content">
+            <h1 data-lang="en">Paintings</h1>
+            <h1 data-lang="ro" style="display:none;">Picturi</h1>
+            <p data-lang="en"> Browse through my collection of artworks and paintings, including my personal creations.
+            </p>
+            <p data-lang="ro" style="display:none;">Explorați o colecție de lucrări iconice ale lui Vincent Van Gogh, evidențiind arta sa atemporală.</p>
+        </div>
+    </section>
+
+    <section class="commission-section fade-in-element">
+        <div class="commission-container">
+            <div class="commission-info" id="infoContainer">
+                <h2 data-lang="en">Commission Process</h2>
+                <h2 data-lang="ro" style="display:none;">Procesul de comandă</h2>
+
+                <p data-lang="en">
+                    We specialize in creating unique, hand-painted artwork tailored to your vision. Our commission process
+                    is a collaborative journey, ensuring your complete satisfaction.
+                </p>
+                <p data-lang="ro" style="display:none;">
+                    Ne specializăm în crearea de opere de artă unice, pictate manual, adaptate viziunii dvs. Procesul nostru
+                    de comandă este o călătorie colaborativă, asigurându-vă satisfacția deplină.
+                </p>
+
+                <ol class="commission-steps" data-lang="en">
+                    <li>
+                        <h3>Initial Consultation</h3>
+                        <p>Share your ideas, preferences, and vision with us. We'll discuss your desired style, subject,
+                            and any specific requirements.</p>
+                    </li>
+                    <li>
+                        <h3>Concept & Proposal</h3>
+                        <p>Based on our discussion, we'll develop a preliminary concept and provide you with a detailed
+                            proposal, including a price quote and estimated timeframe.</p>
+                    </li>
+                    <li>
+                        <h3>Sketch Approval</h3>
+                        <p>We'll create a sketch or digital mock-up of the painting for your review and feedback. This is
+                            your opportunity to request any adjustments to the composition, colors, or details.</p>
+                    </li>
+                    <li>
+                        <h3>Painting Process</h3>
+                        <p>Once the sketch is approved, we'll begin the painting process. We'll keep you updated with
+                            progress photos along the way.</p>
+                    </li>
+                    <li>
+                        <h3>Final Review & Approval</h3>
+                        <p>Upon completion, we'll present you with the finished artwork for your final review and
+                            approval.</p>
+                    </li>
+                    <li>
+                        <h3>Delivery</h3>
+                        <p>After your approval, we'll carefully package and deliver your painting to you.</p>
+                    </li>
+                </ol>
+                <ol class="commission-steps" data-lang="ro" style="display:none;">
+                    <li>
+                        <h3>Consultare inițială</h3>
+                        <p>Împărtășiți-ne ideile, preferințele și viziunea dvs. Vom discuta stilul dorit, subiectul și orice
+                            cerințe specifice.</p>
+                    </li>
+                    <li>
+                        <h3>Concept și propunere</h3>
+                        <p>Pe baza discuției noastre, vom dezvolta un concept preliminar și vă vom oferi o propunere
+                            detaliată, inclusiv o ofertă de preț și un termen estimat.</p>
+                    </li>
+                    <li>
+                        <h3>Aprobarea schiței</h3>
+                        <p>Vom crea o schiță sau o machetă digitală a picturii pentru examinarea și feedback-ul dvs. Aceasta
+                            este oportunitatea dvs. de a solicita orice ajustări ale compoziției, culorilor sau detaliilor.
+                        </p>
+                    </li>
+                    <li>
+                        <h3>Procesul de pictură</h3>
+                        <p>Odată aprobată schița, vom începe procesul de pictură. Vă vom ține la curent cu fotografii ale
+                            progresului pe parcurs.</p>
+                    </li>
+                    <li>
+                        <h3>Revizuire și aprobare finală</h3>
+                        <p>La finalizare, vă vom prezenta opera de artă terminată pentru revizuirea și aprobarea dvs.
+                            finală.</p>
+                    </li>
+                    <li>
+                        <h3>Livrare</h3>
+                        <p>După aprobarea dvs., vom ambala cu grijă și vă vom livra pictura.</p>
+                    </li>
+                </ol>
+
+                <p data-lang="en">
+                    We are committed to creating a piece of art that you will cherish for a lifetime.
+                </p>
+                <p data-lang="ro" style="display:none;">
+                    Ne angajăm să creăm o operă de artă pe care o veți prețui pentru o viață întreagă.
+                </p>
+            </div>
+
+            <div class="commission-form" id="formContainer">
+                <h2 data-lang="en">Commission a Painting</h2>
+                <h2 data-lang="ro" style="display:none;">Comandă o pictură</h2>
+
+                <form id="commissionForm" class="form-group-container">
+                    <div class="form-group">
+                        <label for="name" data-lang="en" class ="transparent-label">Name</label>
+                        <label for="name" data-lang="ro" style="display:none;">Nume</label>
+                        <input type="text" id="name" name="name" placeholder="Your full name" required
+                            aria-label="Paul-Andrei Pintea">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" data-lang="en" class ="transparent-label">Email</label>
+                        <label for="email" data-lang="ro" style="display:none;">Email</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required
+                            aria-label="Your email address">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="paintingType" data-lang="en" class ="transparent-label">Type of Painting</label>
+                        <label for="paintingType" data-lang="ro" style="display:none;">Tipul picturii</label>
+                        <div class="select-wrapper">
+                            <select id="paintingType" name="paintingType" required aria-label="Type of painting">
+                                <option value="" disabled selected>Select a painting type</option>
+                                <option value="Oil on Canvas">Oil on Canvas</option>
+                                <option value="Charcoal on Paper">Charcoal on Paper</option>
+                                <option value="Digital Painting">Digital Painting</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dimensions" data-lang="en" class ="transparent-label">Size/Dimensions</label>
+                        <label for="dimensions" data-lang="ro" style="display:none;">Dimensiuni</label>
+                        <input type="text" id="dimensions" name="dimensions" placeholder="e.g., 24x36 inches" required
+                            aria-label="Size and dimensions">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="deadline" data-lang="en" class ="transparent-label">Deadline/Timeframe</label>
+                        <label for="deadline" data-lang="ro" style="display:none;">Termen limită</label>
+                        <input type="text" id="deadline" name="deadline" placeholder="e.g., 4 weeks" required
+                            aria-label="Deadline or timeframe">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budget" data-lang="en" class ="transparent-label">Budget</label>
+                        <label for="budget" data-lang="ro" style="display:none;">Buget</label>
+                        <input type="text" id="budget" name="budget" placeholder="Your budget" required
+                            aria-label="Your budget">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes" data-lang="en" class ="transparent-label">Additional Notes</label>
+                        <label for="notes" data-lang="ro" style="display:none;">Note suplimentare</label>
+                        <textarea id="notes" name="notes"
+                            placeholder="Share any additional details, references, or special requests"
+                            aria-label="Additional notes"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" data-lang="en" aria-label="Submit commission request">Submit</button>
+                        <button type="submit" data-lang="ro" style="display:none;"
+                            aria-label="Submit commission request">Trimite</button>
+                    </div>
+                </form>
+
+                <div id="formMessage" class="hidden">
+                    <p data-lang="en">Thank you! Your commission request has been submitted.</p>
+                    <p data-lang="ro" style="display:none;">Mulțumesc! Cererea dvs. de comision a fost trimisă.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Paintings Gallery Section -->
+    <section class="paintings-gallery">
+        <h2 data-lang="en">Featured Paintings</h2>
+        <h2 data-lang="ro" style="display:none;">Picturi Alese</h2>
+        <h3 data-lang="en">Oil on canvas</h3>
+        <h3 data-lang="ro" style="display:none;"> Ulei pe pânză</h3>
+        <h2> </h2>
+
+        <div class="paintings-list">
+
+            <div class="painting">
+                <img src="assets/painings/roses_for_grave.jpeg" alt="Sunflowers">
+                <div class="painting-description">
+                    <h3 data-lang="en">Roses from the graveyard</h3>
+                    <h3 data-lang="ro" style="display:none;">Trandafiri din cimitir</h3>
+
+                    <p>Paul-Andrei Pintea, 2025</p>
+                    <p>75×45cm</p>
+
+                    <button class="dropdown-btn" >Description</button>
+                    <!-- <button class="dropdown-btn" data-lang="ro" style="display:none;">Descriere</button> -->
+
+                    <div class="dropdown-content">
+                        <p data-lang="en">"The Candle" is one of a series of still life paintings of sunflowers by Van Gogh. The painting is known for its vibrant yellows and symbolic representation of the beauty of nature.</p>
+                        <p data-lang="ro" style="display:none;">Lumânarea este ultima pictură.</p>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="painting">
+                <img src="assets/painings/candle.jpeg" alt="Sunflowers">
+                <div class="painting-description">
+                    <h3 data-lang="en">The Candle</h3>
+                    <h3 data-lang="ro" style="display:none;">Lumânarea</h3>
+
+                    <p>Paul-Andrei Pintea, 2024</p>
+                    <p>45×45cm</p>
+
+                    <button class="dropdown-btn" >Description</button>
+                    <!-- <button class="dropdown-btn" data-lang="ro" style="display:none;">Descriere</button> -->
+
+                    <div class="dropdown-content">
+                        <p data-lang="en">"The Candle" is one of a series of still life paintings of sunflowers by Van Gogh. The painting is known for its vibrant yellows and symbolic representation of the beauty of nature.</p>
+                        <p data-lang="ro" style="display:none;">Lumânarea este ultima pictură.</p>
+                        
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="painting">
+                <img src="assets/painings/the_funeral.jpeg" alt="Sunflowers">
+                <div class="painting-description">
+                    <h3>The Funeral</h3>
+                    <p>Paul-Andrei Pintea, 2024</p>
+                    <p>120×60cm</p>
+                    <button class="dropdown-btn">Description</button>
+                    <div class="dropdown-content">
+                        <p>"The Candle" is one of a series of still life paintings of sunflowers by Van Gogh. The painting is known for its vibrant yellows and symbolic representation of the beauty of nature.</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="painting">
+                <img src="assets/painings/skull_on_a_pillow.jpeg" alt="Sunflowers">
+                <div class="painting-description">
+                    <h3>Skull on a pillow</h3>
+                    <p>Paul-Andrei Pintea, 2023</p>
+                    <p>45×45cm</p>
+
+                    <button class="dropdown-btn">Description</button>
+                    <div class="dropdown-content">
+                        <p>"The Candle" is one of a series of still life paintings of sunflowers by Van Gogh. The painting is known for its vibrant yellows and symbolic representation of the beauty of nature.</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="painting">
+                <img src="assets/painings/Backyard.jpeg" alt="Backyard">
+                <div class="painting-description">
+                    <h3>The Backyard</h3>
+                    <p>Name, 2020</p>
+                    <p>120×60cm</p>
+
+                    <button class="dropdown-btn">Description</button>
+                    <div class="dropdown-content">
+                        <p>"The Candle" is one of a series of still life paintings of sunflowers by Van Gogh. The painting is known for its vibrant yellows and symbolic representation of the beauty of nature.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="painting">
+                <img src="assets/painings/WhiteRoses.jpeg" alt="White Roses">
+                <div class="painting-description">
+                    <h3>White Roses</h3>
+                    <p>Paul-Andrei Pintea, 2020</p>
+                    <p>45×45cm</p>
+
+                    <button class="dropdown-btn">Description</button>
+                    <div class="dropdown-content">
+                        <p>"The Candle" is one of a series of still life paintings of sunflowers by Van Gogh. The painting is known for its vibrant yellows and symbolic representation of the beauty of nature.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="painting">
+                <img src="assets/painings/Meltdown.jpeg" alt="Meltdown">
+                <div class="painting-description">
+                    <h3>The Meltdown</h3>
+                    <p>Paul-Andrei Pintea, 2020</p>
+                    <p>120×60cm</p>
+
+                    <button class="dropdown-btn">Description</button>
+                    <div class="dropdown-content">
+                        <p>"The Candle" is one of a series of still life paintings of sunflowers by Van Gogh. The painting is known for its vibrant yellows and symbolic representation of the beauty of nature.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Painting 1: The Starry Night -->
+            <div class="painting">
+                <img src="assets/painings/my_starry_night.jpeg" alt="The Starry Night">
+                <div class="painting-description">
+                    <h3>The Starry Night (Reproduction)</h3>
+                    <p>Paul-Andrei Pintea, 2019</p>
+                    <p>150×200cm</p>
+
+                    <button class="dropdown-btn">Description</button>
+                    <div class="dropdown-content">
+                        <p>"The Starry Night" is one of Van Gogh's most famous works. It depicts a view from the Saint-Paul-de-Mausole asylum in Saint-Rémy-de-Provence, where Van Gogh spent time recovering from mental illness.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Painting 2: Sunflowers -->
+            <div class="painting">
+                <img src="assets/painings/theMoon.jpeg" alt="Sunflowers">
+                <div class="painting-description">
+                    <h3>The Moon</h3>
+                    <p>Paul-Andrei Pintea, 2018</p>
+                    <p>80×30cm</p>
+
+                    <button class="dropdown-btn">Description</button>
+                    <div class="dropdown-content">
+                        <p>"The Candle" is one of a series of still life paintings of sunflowers by Van Gogh. The painting is known for its vibrant yellows and symbolic representation of the beauty of nature.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="painting">
+                <img src="assets/painings/landcape.jpeg" alt="Sunflowers">
+                <div class="painting-description">
+                    <h3>Landscape 1</h3>
+                    <p>Paul-Andrei Pintea, 2018</p>
+                    <p>70×30cm</p>
+
+                    <button class="dropdown-btn">Description</button>
+                    <div class="dropdown-content">
+                        <p>"The Candle" is one of a series of still life paintings of sunflowers by Van Gogh. The painting is known for its vibrant yellows and symbolic representation of the beauty of nature.</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Add more paintings here as necessary -->
+ 
+
+
+
+        </div>
+    </section>
+
+    <section class="sketches-gallery">
+        
+        <h2>Featured Sketches</h2>
+
+        <h3>Charcoal on paper </h3>
+        <h2> </h2>
+
+
+        <div class="paintings-list">
+            <!-- Painting 1: The Starry Night -->
+            <div class="painting">
+                <img src="assets/sketches/human_body.jpeg" alt="Human Body 1">
+                <div class="painting-description">
+                    <h3>Human Body 1</h3>
+                    <p>Paul-Andrei Pintea, 2017</p>
+                    <p>70×30cm</p>
+
+                    <button class="dropdown-btn">Description</button>
+                    <div class="dropdown-content">
+                        <p>"The Starry Night" is one of Van Gogh's most famous works. It depicts a view from the Saint-Paul-de-Mausole asylum in Saint-Rémy-de-Provence, where Van Gogh spent time recovering from mental illness.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Painting 2: Sunflowers -->
+            <div class="painting">
+                <img src="assets/sketches/lucifer.jpeg" alt="Lucifer">
+                <div class="painting-description">
+                    <h3>Lucifer</h3>
+                    <p>Paul-Andrei Pintea, 2016</p>
+                    <p>30×70cm</p>
+
+                    <button class="dropdown-btn">Description</button>
+                    <div class="dropdown-content">
+                        <p>"The Candle" is one of a series of still life paintings of sunflowers by Van Gogh. The painting is known for its vibrant yellows and symbolic representation of the beauty of nature.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="painting">
+                <img src="assets/sketches/portait.jpeg" alt="Human Face">
+                <div class="painting-description">
+                    <h3>Human Face </h3>
+                    <p>70×30cm</p>
+                    <p>Paul-Andrei Pintea, 2018</p>
+                    <button class="dropdown-btn">Description</button>
+                    <div class="dropdown-content">
+                        <p>"The Candle" is one of a series of still life paintings of sunflowers by Van Gogh. The painting is known for its vibrant yellows and symbolic representation of the beauty of nature.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more paintings here as necessary -->
+            <div class="painting">
+                <img src="assets/sketches/Glossa.jpeg" alt="Glossa">
+                <div class="painting-description">
+                    <h3>Glossa</h3>
+                    <p>Paul-Andrei Pintea, 2018</p>
+                    <p>30×70cm</p>
+                    
+                    <button class="dropdown-btn">Description</button>
+                    <div class="dropdown-content">
+                        <p>"The Candle" is one of a series of still life paintings of sunflowers by Van Gogh. The painting is known for its vibrant yellows and symbolic representation of the beauty of nature.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="painting">
+                <img src="assets/sketches/primavera.jpeg" alt="Primavera">
+                <div class="painting-description">
+                    <h3>Primavera</h3>
+                    <p>Paul-Andrei Pintea, 2018</p>
+                    <p>30×70cm</p>
+
+                    <button class="dropdown-btn">Description</button>
+                    <div class="dropdown-content">
+                        <p>"The Candle" is one of a series of still life paintings of sunflowers by Van Gogh. The painting is known for its vibrant yellows and symbolic representation of the beauty of nature.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="painting">
+                <img src="assets/sketches/the_tree.jpeg" alt="The Tree">
+                <div class="painting-description">
+                    <h3>The Tree</h3>
+                    <p>Paul-Andrei Pintea, 2018</p>
+                    <p>30×70cm</p>
+
+                    <button class="dropdown-btn">Description</button>
+                    <div class="dropdown-content">
+                        <p>"The Candle" is one of a series of still life paintings of sunflowers by Van Gogh. The painting is known for its vibrant yellows and symbolic representation of the beauty of nature.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="paintings-gallery">
+        <h2>Featured Digital</h2>
+
+        <h3>Digital Illustrations </h3>
+        <h2> </h2>
+        To be added very soon 😉 
+
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 PPA-Create. All rights reserved.</p>
+            <div class="social-links">
+                <a href="mailto:yourname@example.com">Email me</a>
+                <a href="https://linkedin.com/in/yourname">LinkedIn</a>
+                <a href="https://github.com/yourname">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Dropdown buttons for painting descriptions
+            const buttons = document.querySelectorAll(".dropdown-btn");
+            buttons.forEach(button => {
+                button.addEventListener("click", function () {
+                    const content = this.nextElementSibling;
+                    content.style.display = content.style.display === "block" ? "none" : "block";
+                });
+            });
+
+            // Commission form animation
+            function handleFormVisibility() {
+                const formSection = document.querySelector('.commission-section');
+                const infoContainer = document.getElementById('infoContainer');
+                const formContainer = document.getElementById('formContainer');
+                const formGroups = document.querySelector('.form-group-container');
+
+                const rect = formSection.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                    formSection.classList.add('fade-in');
+                    infoContainer.classList.add('commission-visible');
+                    formContainer.classList.add('commission-visible');
+
+                    // Small delay before triggering the form elements animation
+                    setTimeout(() => {
+                        formGroups.classList.add('form-visible');
+                    }, 300);
+
+                    // Remove the observer once animation is triggered
+                    observer.unobserve(formSection);
+                }
+            }
+
+            // Set up intersection observer for fade-in animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    // If the element is in view, add the 'fade-in' class
+                    if (entry.isIntersecting) {
+                        if (entry.target.classList.contains('commission-section')) {
+                            handleFormVisibility();
+                        } else {
+                            entry.target.classList.add('fade-in');
+                        }
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.2
+            });
+
+            // Observe all fade-in elements
+            const fadeElements = document.querySelectorAll('.fade-in-element');
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            // Toggle Language (for elements with data-lang)
+            window.toggleLanguage = function () {
+                const enElements = document.querySelectorAll('[data-lang="en"]');
+                const roElements = document.querySelectorAll('[data-lang="ro"]');
+
+                enElements.forEach(el => {
+                    el.style.display = el.style.display === 'none' ? '' : 'none';
+                });
+
+                roElements.forEach(el => {
+                    el.style.display = el.style.display === 'none' ? '' : 'none';
+                });
+            };
+
+            // Commission form submission with mailto functionality
+            document.getElementById('commissionForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Get form values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const paintingType = document.getElementById('paintingType').value;
+                const dimensions = document.getElementById('dimensions').value;
+                const deadline = document.getElementById('deadline').value;
+                const budget = document.getElementById('budget').value;
+                const notes = document.getElementById('notes').value;
+
+                // Format the message body
+                const subject = encodeURIComponent(`Painting Commission Request from ${name}`);
+                const body = encodeURIComponent(
+                    `Name: ${name}\n` +
+                    `Email: ${email}\n` +
+                    `Type of Painting: ${paintingType}\n` +
+                    `Size/Dimensions: ${dimensions}\n` +
+                    `Deadline: ${deadline}\n` +
+                    `Budget: ${budget}\n` +
+                    `Additional Notes: ${notes}\n`
+                );
+
+                // Create mailto link and trigger it
+                window.location.href = `mailto:yourname@example.com?subject=${subject}&body=${body}`;
+
+                // Show success message
+                document.getElementById('formMessage').classList.add('visible');
+                //setTimeout(() => {
+                  //  document.getElementById('formMessage').classList.remove('visible');
+                //}, 5000);
+
+                // Reset the form
+                this.reset();
+
+                // Add ripple effect on submit button
+                const submitButton = this.querySelector('button[type="submit"]');
+                submitButton.classList.add('active');
+                setTimeout(() => {
+                    submitButton.classList.remove('active');
+                }, 500);
+            });
+        });
+    </script>
+</body>
+
+</html>

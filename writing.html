@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing | Your Name</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Your Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="engineering.html">Engineering/Research</a></li>
+                    <li><a href="writing.html">Writing/Philosophy </a></li>
+                    <li><a href="painting.html">Paintings</a></li>
+                </ul>
+            </nav>
+            <button id="language-toggle" onclick="toggleLanguage()">EN / RO</button>
+        </div>
+    </header>
+
+    <!-- Hero Section for Writing -->
+    <section class="hero writing-hero">
+        <div class="hero-content">
+            <h1 data-lang="en">Writing</h1>
+            <h1 data-lang="ro" style="display:none;">Scriere</h1>
+            <p data-lang="en">Explore my essays, poetry, and other writings that reflect my thoughts and insights.</p>
+            <p data-lang="ro" style="display:none;">Explorați eseuri, poezii și alte scrieri care reflectă gândurile și perspectivele mele.</p>
+        </div>
+    </section>
+
+    <!-- Writings Section -->
+    <section class="writings">
+      
+
+        <section class="research-programs">
+            <h2>Topics </h2>
+            <div class="research-program">
+                <h3>Atheism and Religions </h3>
+                <p>Atheism, encompassing a spectrum from simple lack of belief to active denial of deities, interacts with religions through critical examination of their core tenets. This critique often involves logical arguments against the existence of God, challenges based on scientific explanations of the natural world, and ethical concerns regarding the historical and contemporary impacts of religious doctrines. Furthermore, the inconsistencies between varying religious revelations, and the perceived lack of empirical evidence supporting theistic claims, are also used as arguments against religious belief.</p>
+                <a href="https://control.utcluj.ro" target="_blank" class="external-link">Learn More</a>
+              </div>
+              
+            <div class="research-program">
+              <h3> The ethics of AI use in academia </h3>
+             <p>The ethical use of AI in academia presents a complex landscape, demanding careful consideration of issues like academic integrity, bias, and transparency. While AI tools offer potential benefits in research, teaching, and administrative tasks, they also raise concerns about plagiarism, the authenticity of student work, and the potential for algorithmic bias to perpetuate existing inequalities. </p>
+              <a href="https://daily-philosophy.com/what-is-ethics/" target="_blank" class="external-link">Learn More</a>
+            </div>
+
+          </section>
+
+        <h2>Selected Works</h2>
+
+        <div class="writings-list">
+
+           Links to be added very soon 😉
+            <!-- <div class="writing">
+                <h3>Is AI really helpful for university students?</h3>
+                <p><a href="" target="_blank">Publisher Link</a></p>
+                <button class="dropdown-btn">Extract</button>
+                <div class="dropdown-content">
+                    <p>I have been a teaching assistant for two years now. I have learned as much from the students as they did from me, but one question in one random day, during one random lecture, maybe was the one that got me thinking the most. It was also the one question that I did not know the answer to; it was the first time when I was speechless in front of my students, even if it was for a mear moment. I offered an answer that was the most logical, but I did not believe it. It was the answer that the students would expect from a teacher. The question was: “How can I use the AI tools that are available online without being considered cheating?”  </p>
+                </div>
+            </div>
+           
+            <div class="writing">
+                <h3>All books are equal, but some books are more equal than others!</h3>
+                <p><a href="" target="_blank">Publisher Link</a></p>
+                <button class="dropdown-btn">Extract</button>
+                <div class="dropdown-content">
+                    <p>Animal Farm isn’t just a short, allegorical novella—it’s a philosophical tour de force wrapped in a deceptively simple fable. At first glance, you might read it as a quirky story of farm animals rebelling against a negligent human farmer. However, look closer, and you’ll uncover a profound meditation on power, corruption, language, and the betrayal of ideals. In Animal Farm, George Orwell distils some of the most enduring philosophical questions of our time into a narrative that is as engaging as it is incisive.
+                    </p>
+                </div>
+            </div>
+
+            <div class="writing">
+                <h3>Binary is for computers, not humans! </h3>
+                <p><a href="" target="_blank">Publisher Link</a></p>
+                <button class="dropdown-btn">Extract</button>
+                <div class="dropdown-content">
+                    <p>Binary thinking—the “us versus them” mindset—has long been a subject of philosophical and social inquiry. Philosophers, psychologists, and political theorists have debated its origins, its evolutionary roots, and its impacts on society. In contemporary politics, the tendency to polarize issues into two opposing camps can fuel radicalization, exacerbate ideological divides, and even undermine democratic institutions. This article explores the philosophical ideas underlying binary thinking, how they relate to political radicalization, and what some scholars suggest might be a path beyond “us vs. them” narratives.                    </p>
+                </div>
+            </div> -->
+
+
+            <!-- Add more writings here -->
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 PPA-Create. All rights reserved.</p>
+            <div class="social-links">
+                <a href="mailto:yourname@example.com">Email me</a>
+                <a href="https://linkedin.com/in/yourname">LinkedIn</a>
+                <a href="https://github.com/yourname">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const buttons = document.querySelectorAll(".dropdown-btn");
+          buttons.forEach(button => {
+            button.addEventListener("click", function () {
+              const content = this.nextElementSibling;
+              content.style.display = content.style.display === "block" ? "none" : "block";
+            });
+          });
+        });
+    
+        // Optional: Toggle Language (for elements with data-lang)
+        function toggleLanguage() {
+          document.querySelectorAll('[data-lang]').forEach(el => {
+            el.style.display = (el.style.display === 'none' || el.style.display === '') ? '' : 'none';
+          });
+        }
+      </script>
+</body>
+
+</html>

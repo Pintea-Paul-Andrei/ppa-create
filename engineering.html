@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Engineering & Research | Your Name</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="assets/logo.png" alt="Your Logo" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="engineering.html">Engineering/Research</a></li>
+          <li><a href="writing.html">Writing/Philosophy</a></li>
+          <li><a href="painting.html">Paintings</a></li>
+        </ul>
+      </nav>
+      <button id="language-toggle" onclick="toggleLanguage()">EN / RO</button>
+    </div>
+  </header>
+
+  <!-- Hero Section for Engineering -->
+  <section class="hero engineering-hero">
+    <!-- Animated Circles Background -->
+    <div class="circle-container">
+      <div class="circle circle1"></div>
+      <div class="circle circle2"></div>
+      <div class="circle circle3"></div>
+    </div>
+    <div class="hero-content">
+      <h1 data-lang="en">Engineering & Research</h1>
+      <h1 data-lang="ro" style="display:none;">Inginerie & Cercetare</h1>
+      <p data-lang="en">Explore my contributions to engineering and groundbreaking research projects.</p>
+      <p data-lang="ro" style="display:none;">Explorați contribuțiile mele în inginerie și proiecte de cercetare inovatoare.</p>
+    </div>
+  </section>
+
+  <section class="research-programs">
+    <h2>Research Programs</h2>
+    <div class="research-program">
+      <h3>Centre of Excellence in Computer Assisted Systems for Drug Dosing Control and Optimisation</h3>
+      <p>The general anesthesia is a complex control problem present in various medical applications of drug management systems. Current practice expects the anesthesiologist to calculate and predict in real time the optimal dose. This program focuses on developing advanced methods for dose optimization.</p>
+      <a href="https://control.utcluj.ro/projects/optimdrug/" target="_blank" class="external-link">Learn More</a>
+    </div>
+    <div class="research-program">
+      <h3>Personal Glucose Optimisation</h3>
+      <p>An advanced research program focused on applying AI to optimize glucose levels in Type 1 Diabetes patients.</p>
+      <a href="https://control.utcluj.ro" target="_blank" class="external-link">Learn More</a>
+    </div>
+  </section>
+
+  <section class="research-groups">
+    <h2>Research Groups</h2>
+    <div class="research-program">
+      <h3>ADAPTED RESEARCH GROUP</h3>
+      <p>Advanced control of various processes, along with applied informatics in medicine are among the key focus areas.</p>
+      <a href="https://control.utcluj.ro" target="_blank" class="external-link">Learn More</a>
+    </div>
+  </section>
+
+  <!-- Publications Section -->
+  <section class="publications">
+    <h2>Selected Publications</h2>
+    <div class="publications-list">
+      <!-- Publication 1 -->
+      <div class="publication">
+        <h3>Koopman Linearization and Optimal Control of Glucose Level</h3>
+        <p><a href="https://ieeexplore.ieee.org/abstract/document/10744740" target="_blank">Publisher Link</a></p>
+        <button class="dropdown-btn">Abstract</button>
+        <div class="dropdown-content">
+            <p>The Artificial Pancreas Problem (APP) offers a potential framework for Control Engineering studies, specifically in the field of continuous monitoring and actuation to control glucose levels. The models that give a satisfactory level of accuracy are nonlinear by nature however, the standard approach in linear control is to find a linear representation of the model. The current paper proposes a comparison between standard linearization and linearization via the Koopman Operator for an input-affine nonlinear model from insulin intake to glucose level. Each model also has an additive disturbance component. To account for it, the current paper proposes a method of modeling the disturbance based on Gauss Processes. For a meaningful comparison between the considered linear matrix inequality-based controllers (LMI) and linear-quadratic regulators (LQR), the paper introduces the term Glucose Absolute Error (GAE) as an error index adapted for the Insulin-Glucose system.</p>
+        </div>
+      </div>
+      <!-- Publication 2 -->
+      <div class="publication">
+        <h3>Anesthesia Control Using Fractional Order Controller</h3>
+        <p><a href="https://www.researchgate.net/publication/387883030_Anesthesia_Control_Using_Fractional_Order_Controller" target="_blank">Publisher Link</a></p>
+        <button class="dropdown-btn">Abstract</button>
+        <div class="dropdown-content">
+            <p>Anesthesia plays a crucial role in every surgery. Clinicians are faced with numerous conditions that need to be monitored and controlled. A computerized monitoring and control system would help them in this challenging task. Designing a control law for general anesthesia presents numerous challenges, particularly due to the nonlinear mapping of outputs and the complexity of achieving a feasible input trajectory. While the internal states of the mathematical model are linear, the output exhibits nonlinear behavior. This paper introduces a decomposition of the standard pharmacokinetic-pharmacodynamic (PK-PD) model to develop an effective control strategy for drug administration in anesthesia. It is proposed a method to control the bispectral index (BIS), the main measure of unconsciousness of the patient. This approach aims to optimize anesthesia delivery by maintaining the BIS within a desired range, thereby enhancing patient safety and comfort. The methodology involves designing a fractional order controller to accurately track BIS reference values and adjust anesthetic infusion rates. The effectiveness of the controller is validated through simulations, demonstrating its potential to enhance the precision of anesthesia management. Key findings reveal that such type of control outperforms traditional methods in maintaining target BIS levels, minimizing the risks of over- or under-dosing.</p>
+        </div>
+      </div>
+      <!-- Publication 3 -->
+      <div class="publication">
+        <h3>Disturbance Modelling in Anaesthesia Control Using Regression Models Based on Gauss Processes</h3>
+        <p><a href="https://ieeexplore.ieee.org/abstract/document/10737550" target="_blank">Publisher Link</a></p>
+        <button class="dropdown-btn">Abstract</button>
+        <div class="dropdown-content">
+        <p>When addressing control challenges, the presence of disturbances can pose a significant obstacle, particularly in scenarios where the temporal evolution of the disturbance is uncertain. Modelling disturbances in biological systems further compounds this challenge due to the inherent complexity of such systems. The anaesthesia model is situated within the domain of complex systems, for which there is presently no universally endorsed approach for modelling disturbances. However, this paper introduces a statistical methodology for characterising the trajectory between known points through the application of Gaussian Process Regression. The simulation results proves the introduced advantages.</p>
+        </div>
+      </div>
+      <!-- Publication 4 -->
+      <div class="publication">
+        <h3>Weight Matrix Syntheses Using the Controllability Gramian for LQR Anaesthesia Control</h3>
+        <p><a href="https://ieeexplore.ieee.org/abstract/document/10554112" target="_blank">Publisher Link</a></p>
+        <button class="dropdown-btn">Abstract</button>
+        <div class="dropdown-content">
+   <p>
+    When it comes to the process of designing a control law for general anaesthesia there are many challenges. One of them is the nonlinear mapping of the output and the problem of a feasible input trajectory. From the point of view of the mathematical model, the internal states are linear, only the output has nonlinear terms. The current work presents a decomposition of the standard Pharmacokinetic-Pharmacodynamic model, and an approach to control the effect of the drugs on the patient. In this manner a suitable linear control law can be determined. It is also presented a framework for computing the weight matrices Q and R used for the Linear Quadratic Regulator method based on the Controllability Gramian of the system. The paper proposes and compares three newly developed methods, taking into account as performance the evolution of the Bispectral Index as well as the total input energy required to reach these levels.
+   </p>
+        </div>
+      </div>
+      <!-- Publication 5 -->
+      <div class="publication">
+        <h3>Inducing Anaesthesia via Exact Feedback Linearization control</h3>
+        <p><a href="https://www.sciencedirect.com/science/article/pii/S2405896324007869" target="_blank">Publisher Link</a></p>
+        <button class="dropdown-btn">Abstract</button>
+        <div class="dropdown-content">
+            <p>
+                The necessity of painless surgery and delivering an accurate dose of drug to induce anaesthesia to the patient is indubitable. Delivering a higher dose to the patient may lead to adverse effects and postoperative complications, while a lower dose obviously leads the patient to regain consciousness during the surgery and in extreme cases even to surgery failure. To overcome such complications during surgeries several research studies revolve around the design of a computer-controlled system to deliver an accurate dose of drug to induce anaesthesia. Therefore this paper aims to introduce an exact linearization of the drug administration model in anaesthesia, without losing too much information about the internal dynamics. This is realised by creating a linear map between the input and output. The control law uses this model and is designed to ensure performances of no overshoot and minimum steady-state error. The control loop is tested on a system with parametric uncertainties (related to patient intra/inter-variability). The simulation results validate the proposed approach and demonstrate its robustness.
+            </p>
+        </div>
+      </div>
+      <!-- Publication 6 -->
+      <div class="publication">
+        <h3>Glucose Level Control in Type 1 Diabetes Patients</h3>
+        <p><a href="https://ieeexplore.ieee.org/abstract/document/10308454" target="_blank">Publisher Link</a></p>
+        <button class="dropdown-btn">Abstract</button>
+        <div class="dropdown-content">
+        <p>The main objective of this paper is to design a suitable control strategy which solves the the so-called Artificial Pancreas Problem, which affects patients with Type 1 Diabetes Mellitus. The theoretical background consists in using the exact feedback linearization technique. Using a suitable change of coordinates paired with a designed input signal create a linear map between input and output which is further used to design a control law. Moreover, the input is computed to perform a disturbance decoupling. The resulting linear model is used within the optimal control approach. Conclusively is presented a comparison between a patient using the open loop control and a patient with the present control law.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Programs Section -->
+
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 PPA-Create. All rights reserved.</p>
+      <div class="social-links">
+        <a href="mailto:yourname@example.com">Email me</a>
+        <a href="https://linkedin.com/in/yourname">LinkedIn</a>
+        <a href="https://github.com/yourname">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toggle Script for Abstracts -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const buttons = document.querySelectorAll(".dropdown-btn");
+      buttons.forEach(button => {
+        button.addEventListener("click", function () {
+          const content = this.nextElementSibling;
+          content.style.display = content.style.display === "block" ? "none" : "block";
+        });
+      });
+    });
+
+    // Optional: Toggle Language (for elements with data-lang)
+    function toggleLanguage() {
+      document.querySelectorAll('[data-lang]').forEach(el => {
+        el.style.display = (el.style.display === 'none' || el.style.display === '') ? '' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
