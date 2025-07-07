@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paintings | PPA</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+  <style>
+
+    /* Global Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #fdfdfd;
+      margin: 0;
+      padding: 0;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+      font-weight: 700;
+      color: #111;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-top: 2rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Form Styling */
+    form {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    form input,
+    form select,
+    form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    form button {
+      background-color: #000;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #333;
+    }
+
+    /* Language toggle */
+    .lang-toggle {
+      margin-bottom: 2rem;
+    }
+
+    .lang-toggle button {
+      background-color: transparent;
+      border: 1px solid #000;
+      color: #000;
+      padding: 0.5rem 1rem;
+      margin-right: 0.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .lang-toggle button:hover {
+      background-color: #000;
+      color: #fff;
+    }
+
+    /* Gallery grid */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .gallery-item {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .gallery-item h3 {
+      margin: 1rem;
+      font-size: 1.25rem;
+    }
+
+    .gallery-item p {
+      margin: 0 1rem 1rem 1rem;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      form {
+        padding: 1.5rem;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+<main class="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48 pt-12 pb-24">
+  <section class="space-y-6 fade-in-element">
+    <h1 class="text-4xl font-bold" data-lang="en">Paintings</h1>
+    <h1 class="text-4xl font-bold hidden" data-lang="ro">Picturi</h1>
+    <p data-lang="en">Browse through my collection of artworks and paintings, including my personal creations.</p>
+    <p data-lang="ro" class="hidden">Explorați o colecție de lucrări iconice ale lui Vincent Van Gogh, evidențiind arta sa atemporală.</p>
+  </section>
+
+  <!-- Commission Process -->
+  <section class="mt-16 fade-in-element">
+    <div class="space-y-6">
+      <h2 class="text-2xl font-semibold" data-lang="en">Commission Process</h2>
+      <h2 class="text-2xl font-semibold hidden" data-lang="ro">Procesul de comandă</h2>
+
+      <p data-lang="en">We specialize in creating unique, hand-painted artwork tailored to your vision. Our commission process is a collaborative journey, ensuring your complete satisfaction.</p>
+      <p data-lang="ro" class="hidden">Ne specializăm în crearea de opere de artă unice, pictate manual, adaptate viziunii dvs. Procesul nostru de comandă este o călătorie colaborativă, asigurându-vă satisfacția deplină.</p>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Steps -->
+        <ol class="list-decimal list-inside space-y-4" data-lang="en">
+          <li><strong>Initial Consultation</strong>: Share your ideas and vision with us.</li>
+          <li><strong>Concept & Proposal</strong>: We present a detailed concept and quote.</li>
+          <li><strong>Sketch Approval</strong>: Review and provide feedback on the mock-up.</li>
+          <li><strong>Painting Process</strong>: We begin the painting and share progress.</li>
+          <li><strong>Final Review & Approval</strong>: You review the finished piece.</li>
+          <li><strong>Delivery</strong>: The artwork is packaged and delivered to you.</li>
+        </ol>
+        <ol class="list-decimal list-inside space-y-4 hidden" data-lang="ro">
+          <li><strong>Consultare inițială</strong>: Împărtăȟiți viziunea dvs. cu noi.</li>
+          <li><strong>Concept și propunere</strong>: Vă prezentăm un concept și ofertă detaliată.</li>
+          <li><strong>Aprobarea schiței</strong>: Examinați macheta și dați feedback.</li>
+          <li><strong>Procesul de pictură</strong>: Începem pictura și vă trimitem actualizări.</li>
+          <li><strong>Revizuire finală</strong>: Revizuiți opera finalizată.</li>
+          <li><strong>Livrare</strong>: Lucrarea este ambalată și trimisă către dvs.</li>
+        </ol>
+      </div>
+
+      <p data-lang="en">We are committed to creating a piece of art that you will cherish for a lifetime.</p>
+      <p data-lang="ro" class="hidden">Ne angajăm să creăm o operă de artă pe care o veți prețui pentru o viață întreagă.</p>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="mt-16 space-y-8 fade-in-element">
+    <h2 class="text-2xl font-semibold" data-lang="en">Featured Paintings</h2>
+    <h2 class="text-2xl font-semibold hidden" data-lang="ro">Picturi Alese</h2>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <img src="assets/painings/roses_for_grave.jpeg" alt="Roses from the Graveyard" class="rounded-xl shadow-md" />
+        <div class="mt-2">
+          <h3 class="text-lg font-medium" data-lang="en">Roses from the Graveyard</h3>
+          <h3 class="text-lg font-medium hidden" data-lang="ro">Trandafiri din cimitir</h3>
+          <p>Paul-Andrei Pintea, 2025 - 75×45cm</p>
+          <details>
+            <summary>Description</summary>
+            <p class="text-sm mt-1">"The Candle" is a still life expressing ephemeral beauty through warm tones.</p>
+          </details>
+        </div>
+      </div>
+
+      <div>
+        <img src="assets/painings/candle.jpeg" alt="The Candle" class="rounded-xl shadow-md" />
+        <div class="mt-2">
+          <h3 class="text-lg font-medium" data-lang="en">The Candle</h3>
+          <h3 class="text-lg font-medium hidden" data-lang="ro">Lumânarea</h3>
+          <p>Paul-Andrei Pintea, 2024 - 45×45cm</p>
+          <details>
+            <summary>Description</summary>
+            <p class="text-sm mt-1">A study of solitude and light, this painting reflects introspection.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sketches -->
+  <section class="mt-16 space-y-8 fade-in-element">
+    <h2 class="text-2xl font-semibold">Featured Sketches</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div>
+        <img src="assets/sketches/human_body.jpeg" alt="Human Body 1" class="rounded-xl shadow-md" />
+        <h3 class="mt-2 font-medium">Human Body 1</h3>
+        <p>Paul-Andrei Pintea, 2017 - 70×30cm</p>
+      </div>
+      <div>
+        <img src="assets/sketches/lucifer.jpeg" alt="Lucifer" class="rounded-xl shadow-md" />
+        <h3 class="mt-2 font-medium">Lucifer</h3>
+        <p>Paul-Andrei Pintea, 2016 - 30×70cm</p>
+      </div>
+      <div>
+        <img src="assets/sketches/portait.jpeg" alt="Human Face" class="rounded-xl shadow-md" />
+        <h3 class="mt-2 font-medium">Human Face</h3>
+        <p>Paul-Andrei Pintea, 2018 - 70×30cm</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Digital Illustrations -->
+  <section class="mt-16 fade-in-element">
+    <h2 class="text-2xl font-semibold">Featured Digital</h2>
+    <p class="italic text-gray-500">To be added very soon 😉</p>
+  </section>
+</main>
+</body>
+
+</html>

@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PPA-Create | Professional Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary-color: #64748b;
+      --accent-color: #0ea5e9;
+      --accent-gradient: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
+      --subtle-gradient: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+      --background-white: #ffffff;
+      --background-light: #f8fafc;
+      --text-primary: #1e293b;
+      --text-secondary: #64748b;
+      --text-light: #94a3b8;
+      --border-light: #e2e8f0;
+      --border-medium: #cbd5e1;
+      --glass-bg: rgba(255, 255, 255, 0.8);
+      --glass-border: rgba(37, 99, 235, 0.2);
+      --shadow-light: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+      --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-glow: 0 20px 40px rgba(37, 99, 235, 0.15);
+    }
+
+    [data-theme="dark"] {
+      --background-white: #0f172a;
+      --background-light: #1e293b;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-light: #64748b;
+      --border-light: #334155;
+      --border-medium: #475569;
+      --glass-bg: rgba(15, 23, 42, 0.8);
+      --glass-border: rgba(37, 99, 235, 0.3);
+      --subtle-gradient: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      --shadow-light: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+      --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+      --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+      --shadow-glow: 0 20px 40px rgba(37, 99, 235, 0.25);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background: var(--background-white);
+      overflow-x: hidden;
+      transition: all 0.3s ease;
+    }
+
+    /* Subtle animated background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background:
+              radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.05) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(14, 165, 233, 0.05) 0%, transparent 50%),
+              radial-gradient(circle at 40% 40%, rgba(37, 99, 235, 0.03) 0%, transparent 50%);
+      z-index: -1;
+      animation: subtleFloat 25s ease-in-out infinite;
+      transition: all 0.3s ease;
+    }
+
+    [data-theme="dark"] body::before {
+      background:
+              radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 40% 40%, rgba(37, 99, 235, 0.05) 0%, transparent 50%);
+    }
+
+    @keyframes subtleFloat {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(1deg); }
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-light);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 4rem;
+    }
+
+    .logo {
+      font-family: 'Source Serif Pro', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: translateY(-1px);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2.5rem;
+    }
+
+    nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-gradient);
+      transition: width 0.3s ease;
+      border-radius: 1px;
+    }
+
+    nav a:hover {
+      color: var(--primary-color);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .control-btn {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      color: var(--text-secondary);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .control-btn:hover {
+      background: var(--accent-gradient);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .theme-toggle {
+      width: 50px;
+      height: 26px;
+      background: var(--border-light);
+      border-radius: 13px;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      outline: none;
+    }
+
+    .theme-toggle::before {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 22px;
+      height: 22px;
+      background: white;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-light);
+    }
+
+    [data-theme="dark"] .theme-toggle {
+      background: var(--primary-color);
+    }
+
+    [data-theme="dark"] .theme-toggle::before {
+      transform: translateX(24px);
+      background: #1e293b;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 8rem 2rem 6rem;
+      text-align: center;
+      background: linear-gradient(180deg, var(--background-white) 0%, var(--background-light) 100%);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-family: 'Source Serif Pro', serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+      transition: all 0.3s ease;
+    }
+
+    .hero h1 span {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+    }
+
+    .hero h1 span::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--accent-gradient);
+      border-radius: 2px;
+      animation: subtleGlow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes subtleGlow {
+      from { box-shadow: 0 0 10px rgba(37, 99, 235, 0.3); }
+      to { box-shadow: 0 0 20px rgba(37, 99, 235, 0.5); }
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      margin-bottom: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+      transition: all 0.3s ease;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      background: var(--accent-gradient);
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-glow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(37, 99, 235, 0.25);
+    }
+
+    /* Stats Section */
+    .stats-section {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      padding: 4rem 2rem;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .stats-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .stat-item {
+      padding: 1.5rem;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .stat-item:hover {
+      transform: translateY(-5px);
+      background: var(--glass-bg);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .stat-item h3 {
+      font-family: 'Source Serif Pro', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-item p {
+      color: var(--text-secondary);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 0.9rem;
+    }
+
+    /* Areas Section */
+    .areas-of-expertise {
+      padding: 6rem 2rem;
+      background: var(--background-white);
+      transition: all 0.3s ease;
+    }
+
+    .areas-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .areas-of-expertise h2 {
+      font-family: 'Source Serif Pro', serif;
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      margin-bottom: 4rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .expertise-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .expertise-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 2rem;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .expertise-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--accent-gradient);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+    }
+
+    .expertise-card:hover::before {
+      opacity: 0.05;
+    }
+
+    .expertise-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-glow);
+      border-color: var(--primary-color);
+    }
+
+    .expertise-card.active {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .expertise-card.active::before {
+      opacity: 0.08;
+    }
+
+    .expertise-icon {
+      width: 70px;
+      height: 70px;
+      background: var(--accent-gradient);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-medium);
+      transition: all 0.3s ease;
+    }
+
+    .expertise-card:hover .expertise-icon {
+      transform: scale(1.1);
+      box-shadow: var(--shadow-large);
+    }
+
+    .expertise-card h3 {
+      font-family: 'Source Serif Pro', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+
+    .expertise-card > p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .preview-panel {
+      display: none;
+      background: var(--subtle-gradient);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      border-left: 4px solid var(--primary-color);
+      animation: slideDown 0.4s ease;
+      box-shadow: var(--shadow-light);
+    }
+
+    .preview-panel.active {
+      display: block;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .preview-panel p {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .preview-panel strong {
+      color: var(--text-primary);
+    }
+
+    .preview-panel a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      padding: 0.5rem 1rem;
+      background: rgba(37, 99, 235, 0.1);
+      border-radius: 8px;
+      margin-top: 0.5rem;
+    }
+
+    .preview-panel a:hover {
+      background: var(--primary-color);
+      color: white;
+      transform: translateX(4px);
+    }
+
+    .preview-panel a::after {
+      content: '→';
+      transition: transform 0.3s ease;
+    }
+
+    .preview-panel a:hover::after {
+      transform: translateX(4px);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--background-light);
+      color: var(--text-secondary);
+      padding: 3rem 0;
+      text-align: center;
+      position: relative;
+      border-top: 1px solid var(--border-light);
+      transition: all 0.3s ease;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--accent-gradient);
+    }
+
+    footer .container {
+      display: block;
+      text-align: center;
+    }
+
+    footer p {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .social-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-light);
+    }
+
+    .social-links a:hover {
+      color: var(--primary-color);
+      background: var(--glass-bg);
+      border-color: var(--primary-color);
+      transform: translateY(-2px);
+    }
+
+    /* Language content visibility */
+    .lang-content {
+      display: none;
+    }
+
+    .lang-content.active {
+      display: block;
+    }
+
+    .lang-content.active[data-lang="en"] {
+      display: block;
+    }
+
+    .lang-content.active[data-lang="ro"] {
+      display: block;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1rem;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      .header-controls {
+        gap: 0.5rem;
+      }
+
+      .control-btn {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+      }
+
+      .hero {
+        padding: 6rem 1rem 4rem;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .expertise-cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .areas-of-expertise {
+        padding: 4rem 1rem;
+      }
+
+      .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .social-links {
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stats-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body data-theme="light">
+<!-- Header Section -->
+<header>
+  <div class="container">
+    <a href="index.html" class="logo">PPA-Create</a>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="lang-content active" data-lang="en">Home</a></li>
+        <li><a href="engineering.html" class="lang-content active" data-lang="en">Engineering</a></li>
+        <li><a href="writing.html" class="lang-content active" data-lang="en">Writing</a></li>
+        <li><a href="painting.html" class="lang-content active" data-lang="en">Paintings</a></li>
+
+        <li><a href="index.html" class="lang-content" data-lang="ro">Acasă</a></li>
+        <li><a href="engineering.html" class="lang-content" data-lang="ro">Inginerie</a></li>
+        <li><a href="writing.html" class="lang-content" data-lang="ro">Scriere</a></li>
+        <li><a href="painting.html" class="lang-content" data-lang="ro">Pictură</a></li>
+      </ul>
+    </nav>
+    <div class="header-controls">
+      <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle dark mode"></button>
+      <button class="control-btn" onclick="toggleLanguage()">
+        <span class="lang-content active" data-lang="en">🇬🇧 EN</span>
+        <span class="lang-content" data-lang="ro">🇷🇴 RO</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <h1 class="lang-content active" data-lang="en">Hello, I'm <span>Paul-Andrei</span></h1>
+    <h1 class="lang-content" data-lang="ro">Bună, sunt <span>Paul-Andrei</span></h1>
+
+    <p class="lang-content active" data-lang="en">A multidisciplinary professional specializing in engineering research, philosophical writing, and artistic expression. Explore my comprehensive portfolio showcasing years of dedicated work across diverse fields.</p>
+    <p class="lang-content" data-lang="ro">Un profesionist multidisciplinar specializat în cercetarea inginerească, scrierea filozofică și expresia artistică. Explorează portofoliul meu comprehensiv care prezintă ani de muncă dedicată în domenii diverse.</p>
+
+    <a href="#areas" class="btn lang-content active" data-lang="en">Discover My Work</a>
+    <a href="#areas" class="btn lang-content" data-lang="ro">Descoperă Munca Mea</a>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section">
+  <div class="stats-container">
+    <div class="stat-item">
+      <h3>5+</h3>
+      <p class="lang-content active" data-lang="en">Years Experience</p>
+      <p class="lang-content" data-lang="ro">Ani Experiență</p>
+    </div>
+    <div class="stat-item">
+      <h3>50+</h3>
+      <p class="lang-content active" data-lang="en">Projects Completed</p>
+      <p class="lang-content" data-lang="ro">Proiecte Finalizate</p>
+    </div>
+    <div class="stat-item">
+      <h3>10+</h3>
+      <p class="lang-content active" data-lang="en">Research Papers</p>
+      <p class="lang-content" data-lang="ro">Articole de Cercetare</p>
+    </div>
+    <div class="stat-item">
+      <h3>3</h3>
+      <p class="lang-content active" data-lang="en">Core Disciplines</p>
+      <p class="lang-content" data-lang="ro">Discipline Principale</p>
+    </div>
+  </div>
+</section>
+
+<!-- Areas of Expertise Section -->
+<section id="areas" class="areas-of-expertise">
+  <div class="areas-container">
+    <h2 class="lang-content active" data-lang="en">Areas of Expertise</h2>
+    <h2 class="lang-content" data-lang="ro">Domenii de Expertiză</h2>
+
+    <p class="section-subtitle lang-content active" data-lang="en">Discover my professional work across engineering, writing, and visual arts, each representing years of dedicated study and practice.</p>
+    <p class="section-subtitle lang-content" data-lang="ro">Descoperă munca mea profesională în inginerie, scriere și arte vizuale, fiecare reprezentând ani de studiu și practică dedicată.</p>
+
+    <div class="expertise-cards">
+      <!-- Engineering Card -->
+      <div class="expertise-card" data-area="engineering">
+        <div class="expertise-icon">⚡</div>
+        <h3 class="lang-content active" data-lang="en">Engineering & Research</h3>
+        <h3 class="lang-content" data-lang="ro">Inginerie & Cercetare</h3>
+
+        <p class="lang-content active" data-lang="en">Advanced control systems, AI-driven research, and published academic papers focusing on biomedical engineering and optimization algorithms.</p>
+        <p class="lang-content" data-lang="ro">Sisteme de control avansate, cercetare bazată pe AI și lucrări academice publicate cu focus pe ingineria biomedicală și algoritmi de optimizare.</p>
+
+        <div class="preview-panel">
+          <p class="lang-content active" data-lang="en">
+            <strong>Engineering Portfolio:</strong>
+            Comprehensive collection of my research in insulin-glucose control systems, anesthesia optimization, and advanced control theory. Includes peer-reviewed publications and technical documentation.
+          </p>
+          <p class="lang-content" data-lang="ro">
+            <strong>Portofoliu Inginerie:</strong>
+            Colecție comprehensivă a cercetărilor mele în sistemele de control insulină-glucoză, optimizarea anesteziei și teoria controlului avansat. Include publicații evaluate de colegi și documentație tehnică.
+          </p>
+          <a href="engineering.html" class="lang-content active" data-lang="en">View Engineering Work</a>
+          <a href="engineering.html" class="lang-content" data-lang="ro">Vezi Munca de Inginerie</a>
+        </div>
+      </div>
+
+      <!-- Writing Card -->
+      <div class="expertise-card" data-area="writing">
+        <div class="expertise-icon">✍️</div>
+        <h3 class="lang-content active" data-lang="en">Writing & Philosophy</h3>
+        <h3 class="lang-content" data-lang="ro">Scriere & Filozofie</h3>
+
+        <p class="lang-content active" data-lang="en">Thoughtful essays on technology's societal impact, philosophical reflections on modern life, and creative writing exploring the human condition.</p>
+        <p class="lang-content" data-lang="ro">Eseuri reflexive despre impactul social al tehnologiei, reflecții filozofice asupra vieții moderne și scriere creativă care explorează condiția umană.</p>
+
+        <div class="preview-panel">
+          <p class="lang-content active" data-lang="en">
+            <strong>Writing Portfolio:</strong>
+            Essays examining the intersection of technology and humanity, philosophical treatises on ethics and consciousness, and creative works that bridge analytical and artistic thinking.
+          </p>
+          <p class="lang-content" data-lang="ro">
+            <strong>Portofoliu Scriere:</strong>
+            Eseuri care examinează intersecția dintre tehnologie și umanitate, tratate filozofice despre etică și conștiință, și lucrări creative care fac legătura între gândirea analitică și cea artistică.
+          </p>
+          <a href="writing.html" class="lang-content active" data-lang="en">View Writing Work</a>
+          <a href="writing.html" class="lang-content" data-lang="ro">Vezi Munca de Scriere</a>
+        </div>
+      </div>
+
+      <!-- Art Card -->
+      <div class="expertise-card" data-area="art">
+        <div class="expertise-icon">🎨</div>
+        <h3 class="lang-content active" data-lang="en">Visual Arts & Painting</h3>
+        <h3 class="lang-content" data-lang="ro">Arte Vizuale & Pictură</h3>
+
+        <p class="lang-content active" data-lang="en">Original paintings exploring abstract concepts, nature studies, and contemporary artistic expressions using various media and techniques.</p>
+        <p class="lang-content" data-lang="ro">Picturi originale care explorează concepte abstracte, studii ale naturii și expresii artistice contemporane folosind diverse medii și tehnici.</p>
+
+        <div class="preview-panel">
+          <p class="lang-content active" data-lang="en">
+            <strong>Art Portfolio:</strong>
+            A curated collection of paintings and visual works spanning multiple styles and themes. Each piece reflects a unique perspective on form, color, and meaning.
+          </p>
+          <p class="lang-content" data-lang="ro">
+            <strong>Portofoliu Artă:</strong>
+            O colecție curată de picturi și lucrări vizuale care acoperă multiple stiluri și teme. Fiecare piesă reflectă o perspectivă unică asupra formei, culorii și semnificației.
+          </p>
+          <a href="painting.html" class="lang-content active" data-lang="en">View Art Work</a>
+          <a href="painting.html" class="lang-content" data-lang="ro">Vezi Munca Artistică</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer Section -->
+<footer>
+  <div class="container">
+    <p class="lang-content active" data-lang="en">© 2024 Paul-Andrei. All rights reserved. Dedicated to excellence in engineering, writing, and artistic creation.</p>
+    <p class="lang-content" data-lang="ro">© 2024 Paul-Andrei. Toate drepturile rezervate. Dedicat excelentei în inginerie, scriere și creație artistică.</p>
+
+    <div class="social-links">
+      <a href="#contact" class="lang-content active" data-lang="en">Contact</a>
+      <a href="#contact" class="lang-content" data-lang="ro">Contact</a>
+      <a href="#linkedin" class="lang-content active" data-lang="en">LinkedIn</a>
+      <a href="#linkedin" class="lang-content" data-lang="ro">LinkedIn</a>
+      <a href="#academia" class="lang-content active" data-lang="en">Academia</a>
+      <a href="#academia" class="lang-content" data-lang="ro">Academia</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Theme toggle functionality
+  function toggleTheme() {
+    const body = document.body;
+    const currentTheme = body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+    body.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+  }
+
+  // Language toggle functionality
+  function toggleLanguage() {
+    const langElements = document.querySelectorAll('.lang-content');
+    const currentLang = document.querySelector('.lang-content.active').getAttribute('data-lang');
+    const newLang = currentLang === 'en' ? 'ro' : 'en';
+
+    langElements.forEach(element => {
+      element.classList.remove('active');
+      if (element.getAttribute('data-lang') === newLang) {
+        element.classList.add('active');
+      }
+    });
+
+    localStorage.setItem('language', newLang);
+  }
+
+  // Expertise card interaction
+  function initializeExpertiseCards() {
+    const cards = document.querySelectorAll('.expertise-card');
+
+    cards.forEach(card => {
+      card.addEventListener('click', function() {
+        const panel = this.querySelector('.preview-panel');
+        const isActive = this.classList.contains('active');
+
+        // Close all other panels
+        cards.forEach(otherCard => {
+          if (otherCard !== this) {
+            otherCard.classList.remove('active');
+            otherCard.querySelector('.preview-panel').classList.remove('active');
+          }
+        });
+
+        // Toggle current panel
+        if (isActive) {
+          this.classList.remove('active');
+          panel.classList.remove('active');
+        } else {
+          this.classList.add('active');
+          panel.classList.add('active');
+        }
+      });
+    });
+  }
+
+  // Smooth scroll for anchor links
+  function initializeSmoothScroll() {
+    const links = document.querySelectorAll('a[href^="#"]');
+
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  }
+
+  // Header scroll effect
+  function initializeHeaderScroll() {
+    const header = document.querySelector('header');
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener('scroll', () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > 100) {
+        header.style.background = 'rgba(255, 255, 255, 0.95)';
+        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+      } else {
+        header.style.background = 'rgba(255, 255, 255, 0.8)';
+        header.style.boxShadow = 'none';
+      }
+
+      // Update for dark theme
+      if (document.body.getAttribute('data-theme') === 'dark') {
+        if (currentScrollY > 100) {
+          header.style.background = 'rgba(15, 23, 42, 0.95)';
+          header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
+        } else {
+          header.style.background = 'rgba(15, 23, 42, 0.8)';
+          header.style.boxShadow = 'none';
+        }
+      }
+
+      lastScrollY = currentScrollY;
+    });
+  }
+
+  // Stats counter animation
+  function initializeStatsAnimation() {
+    const statItems = document.querySelectorAll('.stat-item h3');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const target = entry.target;
+          const finalValue = parseInt(target.textContent.replace('+', ''));
+          animateCounter(target, finalValue);
+          observer.unobserve(target);
+        }
+      });
+    });
+
+    statItems.forEach(item => observer.observe(item));
+  }
+
+  function animateCounter(element, target) {
+    let current = 0;
+    const increment = target / 50;
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      element.textContent = Math.floor(current) + (target >= 10 ? '+' : '');
+    }, 30);
+  }
+
+  // Load saved preferences
+  function loadPreferences() {
+    const savedTheme = localStorage.getItem('theme');
+    const savedLanguage = localStorage.getItem('language');
+
+    if (savedTheme) {
+      document.body.setAttribute('data-theme', savedTheme);
+    }
+
+    if (savedLanguage) {
+      const langElements = document.querySelectorAll('.lang-content');
+      langElements.forEach(element => {
+        element.classList.remove('active');
+        if (element.getAttribute('data-lang') === savedLanguage) {
+          element.classList.add('active');
+        }
+      });
+    }
+  }
+
+  // Initialize all functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    loadPreferences();
+    initializeExpertiseCards();
+    initializeSmoothScroll();
+    initializeHeaderScroll();
+    initializeStatsAnimation();
+
+    // Add entrance animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    });
+
+    document.querySelectorAll('.expertise-card, .stat-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'all 0.6s ease';
+      observer.observe(el);
+    });
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Tab') {
+      document.body.classList.add('keyboard-nav');
+    }
+  });
+
+  document.addEventListener('mousedown', function() {
+    document.body.classList.remove('keyboard-nav');
+  });
+</script>
+</body>
+</html>
